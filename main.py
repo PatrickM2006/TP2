@@ -11,7 +11,7 @@ def restart():
     Création de la loop pour recommencer le jeu
     Tu peux décider avec cette partie de code de soit arreter ou recommencer le jeu
     """
-    recommence = input("Voulez-vous continuer?")
+    recommence = input("Voulez-vous continuer?: ")
     if recommence == "oui":
         return True
     elif recommence == "non":
@@ -20,11 +20,13 @@ def restart():
 
 
 while restart():
-    chiffre_aleatoire = random.randint(1, 100)
+
+    nombre_minimum = int(input("Choisissez la borne minimale du jeu: "))
+    nombre_maximum = int(input("Choisissez la borne maximale du jeu: "))
+    chiffre_aleatoire = random.randint(nombre_minimum, nombre_maximum)
     nombre_essai = 0
-    print("J’ai choisi un nombre au hasard entre 1 et 100. ")
-    print("Quel est le nombre que j'ai choisi?")
-    while (essai := int(input("Insérez un nombre entre 1 et 100 : "))) != chiffre_aleatoire:
+    print("Féicitation! Vous avec choisi les bornes.")
+    while (essai := int(input("Trouvez le nombre: "))) != chiffre_aleatoire:
         nombre_essai += 1
         if essai < chiffre_aleatoire:
             print("Mauvaise réponse, le nombre est plus grand ")
